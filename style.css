@@ -1,0 +1,1413 @@
+
+/* ==============================
+   1. WARNA DAN PENGATURAN DASAR
+================================= */
+:root {
+  --lavender: #E6D9FF;
+  --purple: #CDB7F6;
+  --lilac: #F3EDFF;
+  --pink: #F8DDEB;
+  --cream: #FFFCF8;
+  --dark: #493568;
+  --text: #655873;
+  --muted: #887C98;
+  --white: #FFFFFF;
+  --border: #E8DFF4;
+  --shadow: 0 16px 45px rgba(91, 63, 130, 0.10);
+  --radius: 22px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .logo {
+  font-family: "Poppins", sans-serif;
+  color: var(--dark);
+  line-height: 1.3;
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 4.4rem); }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.7rem); }
+h3 { font-size: 1.15rem; }
+
+p { margin-top: 10px; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #9D7BD0;
+  outline-offset: 4px;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin-inline: auto;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section-tint {
+  background:
+    radial-gradient(ellipse at 0% 0%, #F3EDFF 0%, transparent 45%),
+    #FAF6FF;
+}
+
+.gradient-text {
+  color: #8660B8;
+  background: linear-gradient(100deg, #8D69C2, #C27EB0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: #8866B2;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.section-heading {
+  max-width: 680px;
+  text-align: center;
+  margin: 0 auto 48px;
+}
+
+.section-heading p {
+  max-width: 560px;
+  margin: 14px auto 0;
+}
+
+/* ==============================
+   2. NAVBAR
+================================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 252, 248, 0.90);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(205, 183, 246, 0.25);
+  transition: box-shadow 0.3s ease;
+}
+
+.header.scrolled {
+  box-shadow: 0 5px 25px rgba(73, 53, 104, 0.08);
+}
+
+.navbar {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.logo {
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.logo span { color: #B18AE8; }
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+
+.nav-menu a {
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  position: relative;
+  padding: 8px 0;
+  transition: color 0.25s;
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #A583D4;
+  transition: width 0.25s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #8A65B7;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  margin: 5px 0;
+  border-radius: 5px;
+  background: var(--dark);
+  transition: 0.3s;
+}
+
+/* ==============================
+   3. HERO
+================================= */
+.hero {
+  min-height: 660px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 90% 20%, #F8DDEB 0%, transparent 32%),
+    radial-gradient(ellipse at 10% 80%, #E6D9FF 0%, transparent 36%),
+    var(--cream);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 45px;
+}
+
+.hero-content h2 {
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  color: #8B6CB0;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.hero-content > p {
+  max-width: 550px;
+  margin: 20px 0 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  padding: 13px 22px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(91, 63, 130, 0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, #8B69BD, #A77BCB);
+  color: white;
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--dark);
+  border-color: #D5C3EE;
+}
+
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 25px;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  background: #83BCA1;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #E4F3EB;
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 440px;
+  display: grid;
+  place-items: center;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+.blob-one {
+  width: 320px;
+  height: 320px;
+  background: linear-gradient(145deg, #D8C5FA, #F5D8EA);
+  animation: float 7s ease-in-out infinite;
+}
+
+.blob-two {
+  width: 350px;
+  height: 350px;
+  border: 1px dashed rgba(131, 98, 180, 0.35);
+  animation: rotate 30s linear infinite;
+}
+
+.profile-frame {
+  position: relative;
+  width: 265px;
+  height: 320px;
+  border: 8px solid rgba(255, 255, 255, 0.85);
+  border-radius: 48% 48% 35% 35%;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #E8DDF8;
+  z-index: 1;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-placeholder {
+  display: none;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #DCCCF9, #F9DDEB);
+  color: var(--dark);
+}
+
+.profile-placeholder span {
+  font-family: "Poppins", sans-serif;
+  font-size: 6rem;
+  font-weight: 800;
+}
+
+.profile-placeholder p { font-weight: 700; }
+.profile-placeholder small { font-size: 0.75rem; }
+
+.float-card {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+  animation: float 5s ease-in-out infinite;
+}
+
+.float-card > span { font-size: 1.5rem; }
+
+.float-card strong,
+.float-card small { display: block; }
+
+.float-card strong { font-size: 0.77rem; color: var(--dark); }
+.float-card small { font-size: 0.67rem; color: var(--muted); }
+
+.card-code { top: 65px; left: -5px; }
+.card-heart { bottom: 55px; right: -5px; animation-delay: -2s; }
+
+.sparkle {
+  position: absolute;
+  color: #9E7BC8;
+  font-size: 2rem;
+}
+
+.sparkle-one { top: 25px; right: 45px; }
+.sparkle-two { bottom: 50px; left: 20px; }
+
+.scroll-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ==============================
+   4. ABOUT
+================================= */
+.about-card {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 25px;
+  align-items: start;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 35px;
+  box-shadow: var(--shadow);
+}
+
+.about-icon {
+  width: 75px;
+  height: 75px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  background: var(--lilac);
+  border-radius: 22px;
+}
+
+.about-card p { line-height: 1.9; }
+
+.mini-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.fact-card {
+  padding: 25px 15px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  text-align: center;
+  background: linear-gradient(150deg, #FFFFFF, #FAF5FF);
+  transition: transform 0.3s;
+}
+
+.fact-card:hover { transform: translateY(-6px); }
+.fact-card > span { font-size: 1.8rem; }
+.fact-card h3 { margin-top: 10px; font-size: 1rem; }
+.fact-card p { font-size: 0.85rem; }
+
+/* ==============================
+   5. EDUCATION TIMELINE
+================================= */
+.timeline {
+  max-width: 780px;
+  margin: auto;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 26px;
+  top: 25px;
+  bottom: 25px;
+  width: 2px;
+  background: #D9C5F5;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 20px;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.timeline-marker {
+  position: relative;
+  z-index: 1;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  background: white;
+  border: 2px solid #DCCCF7;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px #E6D9FF;
+}
+
+.timeline-card {
+  padding: 27px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(91, 63, 130, 0.06);
+}
+
+.timeline-label,
+.skill-tag {
+  display: inline-block;
+  background: #F1E9FF;
+  color: #7855A4;
+  border-radius: 30px;
+  padding: 5px 11px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.timeline-card h3 { margin-top: 12px; }
+.timeline-subtitle { color: #8C70B0; font-weight: 600; }
+
+/* ==============================
+   6. SKILLS
+================================= */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.skill-card {
+  padding: 28px;
+  border-radius: 20px;
+  background: white;
+  border: 1px solid var(--border);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow);
+}
+
+.skill-icon {
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--lilac);
+  font-size: 1.65rem;
+  margin-bottom: 18px;
+}
+
+.skill-card p { min-height: 55px; }
+.skill-tag { margin-top: 16px; }
+
+/* ==============================
+   7. PROJECTS
+================================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 23px;
+}
+
+.project-card {
+  overflow: hidden;
+  border-radius: 21px;
+  border: 1px solid var(--border);
+  background: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+}
+
+.project-art {
+  height: 190px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.project-art::before,
+.project-art::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+}
+
+.project-art::before {
+  width: 180px;
+  height: 180px;
+  transform: translate(-65px, 50px);
+}
+
+.project-art::after {
+  width: 120px;
+  height: 120px;
+  transform: translate(100px, -65px);
+}
+
+.art-calculator { background: linear-gradient(135deg, #D9CBFA, #F5D9EC); }
+.art-database { background: linear-gradient(135deg, #D2E7F7, #E5DAFC); }
+.art-website { background: linear-gradient(135deg, #F6DCE9, #E1D7FB); }
+
+.art-emoji {
+  position: relative;
+  z-index: 1;
+  font-size: 4rem;
+  filter: drop-shadow(0 8px 10px rgba(73, 53, 104, 0.12));
+  transition: transform 0.3s;
+}
+
+.project-card:hover .art-emoji { transform: scale(1.12) rotate(-5deg); }
+
+.art-label {
+  position: absolute;
+  left: 17px;
+  bottom: 14px;
+  color: var(--dark);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.project-info { padding: 24px; }
+
+.project-category {
+  color: #916AB9;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.project-info h3 { margin-top: 8px; }
+.project-info p { font-size: 0.9rem; }
+
+.project-tech {
+  color: var(--muted);
+  font-size: 0.79rem !important;
+  margin-top: 13px;
+}
+
+.text-link {
+  margin-top: 18px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: #8660B8;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.text-link:hover { color: #5D3A8A; }
+
+.project-note {
+  text-align: center;
+  font-size: 0.82rem;
+  margin-top: 25px;
+}
+
+/* Dialog detail proyek */
+.project-dialog {
+  width: min(500px, 90%);
+  margin: auto;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 0;
+  color: var(--text);
+  box-shadow: 0 25px 80px rgba(45, 30, 65, 0.25);
+}
+
+.project-dialog::backdrop {
+  background: rgba(46, 32, 63, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.dialog-content { padding: 35px; }
+.dialog-content h2 { font-size: 1.7rem; }
+
+.dialog-close {
+  float: right;
+  background: var(--lilac);
+  border: 0;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+/* ==============================
+   8. HOBBIES
+================================= */
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.hobby-card {
+  min-height: 240px;
+  padding: 32px;
+  border-radius: var(--radius);
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.3s;
+}
+
+.hobby-card:hover { transform: translateY(-6px); }
+.hobby-dance { background: linear-gradient(135deg, #F2E9FF, #E6D9FF); }
+.hobby-cooking { background: linear-gradient(135deg, #FCE9F0, #F8DDEB); }
+
+.hobby-emoji { font-size: 4rem; text-align: center; }
+.hobby-number {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #8866B2;
+}
+
+.hobby-card h3 { margin-top: 7px; }
+.hobby-card p { font-size: 0.9rem; }
+
+/* ==============================
+   9. CONTACT
+================================= */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 35px;
+  align-items: start;
+}
+
+.contact-info,
+.contact-form {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: 0 10px 35px rgba(91, 63, 130, 0.05);
+}
+
+.contact-info > p { margin-bottom: 25px; }
+
+.contact-item {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.contact-item > span { font-size: 1.5rem; }
+.contact-item strong { color: var(--dark); }
+.contact-item p { margin-top: 2px; font-size: 0.84rem; }
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form label {
+  margin-top: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #E2D8EF;
+  border-radius: 12px;
+  background: #FFFCFF;
+  color: var(--dark);
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #A98BD3;
+  box-shadow: 0 0 0 4px #F1E9FF;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form .btn { margin-top: 10px; }
+.form-status { font-size: 0.88rem; font-weight: 600; }
+.contact-form small { font-size: 0.76rem; color: var(--muted); }
+
+/* ==============================
+   10. FOOTER DAN TOMBOL ATAS
+================================= */
+.footer {
+  padding: 30px 0;
+  background: #F1E8FC;
+  border-top: 1px solid #E2D5F4;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-inner p { font-size: 0.8rem; margin: 0; }
+
+.back-to-top {
+  position: fixed;
+  z-index: 50;
+  right: 22px;
+  bottom: 22px;
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  background: #8968B7;
+  color: white;
+  border-radius: 15px;
+  font-size: 1.4rem;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.3s;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ==============================
+   11. ANIMASI
+================================= */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-13px); }
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==============================
+   12. RESPONSIVE TABLET & HP
+================================= */
+@media (max-width: 1000px) {
+  .nav-menu { gap: 13px; }
+  .nav-menu a { font-size: 0.8rem; }
+  .hero-grid { gap: 20px; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-card:last-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 760px) {
+  .section { padding: 75px 0; }
+
+  .navbar { min-height: 70px; }
+  .menu-toggle { display: block; z-index: 102; }
+
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px 5% 20px;
+    background: rgba(255, 252, 248, 0.98);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: 0.25s;
+  }
+
+  .nav-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-menu li a {
+    display: block;
+    padding: 12px 0;
+    font-size: 0.95rem;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:nth-child(2) { opacity: 0; }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .hero {
+    padding-top: 65px;
+    padding-bottom: 70px;
+  }
+
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-content { text-align: center; }
+  .hero-content > p { margin-inline: auto; }
+  .hero-buttons, .hero-note { justify-content: center; }
+  .hero-visual { min-height: 390px; margin-top: 15px; }
+  .blob-one { width: 275px; height: 275px; }
+  .blob-two { width: 305px; height: 305px; }
+  .profile-frame { width: 220px; height: 275px; }
+  .card-code { left: 2%; top: 55px; }
+  .card-heart { right: 0; bottom: 45px; }
+  .scroll-hint { display: none; }
+
+  .about-card { grid-template-columns: 1fr; padding: 25px; }
+  .mini-facts { grid-template-columns: 1fr; gap: 13px; }
+  .fact-card { display: grid; grid-template-columns: 45px 1fr; text-align: left; align-items: center; }
+  .fact-card > span { grid-row: span 2; }
+  .fact-card h3, .fact-card p { margin: 0; }
+
+  .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+  .project-card:last-child { grid-column: auto; }
+
+  .hobbies-grid, .contact-layout { grid-template-columns: 1fr; }
+  .hobby-card { grid-template-columns: 70px 1fr; padding: 25px; }
+  .hobby-emoji { font-size: 3rem; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 420px) {
+  .container { width: 91%; }
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons .btn { width: 100%; }
+  .float-card { padding: 9px 10px; }
+  .float-card strong { font-size: 0.68rem; }
+  .float-card small { font-size: 0.6rem; }
+  .contact-info, .contact-form { padding: 23px; }
+  .timeline-item { gap: 12px; grid-template-columns: 44px 1fr; }
+  .timeline-marker { width: 44px; height: 44px; }
+  .timeline::before { left: 21px; }
+  .timeline-card { padding: 20px; }
+}
+
+/* Hormati pengaturan pengurangan animasi perangkat */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #F0E7FC;
+  color: #8052B8;
+  font-size: 24px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: #8052B8;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(128, 82, 184, 0.25);
+}
+
+.social-icons a:focus-visible {
+  outline: 3px solid #8052B8;
+  outline-offset: 4px;
+}
+
+
+/* ==============================
+   13. FITUR TAMBAHAN FILOMENA
+   Tema, musik, foto hobi, dan animasi Home
+================================= */
+:root {
+  --page-bg: #FFFCF8;
+  --surface: #FFFFFF;
+  --surface-soft: #FAF6FF;
+  --body-text: #655873;
+  --heading-text: #493568;
+  --line-color: #E8DFF4;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--body-text);
+  transition: background-color .35s ease, color .35s ease;
+}
+
+body.dark-mode {
+  --page-bg: #171321;
+  --surface: #231C31;
+  --surface-soft: #2B223B;
+  --body-text: #E7DFF2;
+  --heading-text: #F4ECFF;
+  --line-color: #49385F;
+  --cream: #171321;
+  --dark: #F4ECFF;
+  --text: #E7DFF2;
+  --muted: #B9A9CC;
+  --white: #231C31;
+  --border: #49385F;
+  --lilac: #302541;
+  --shadow: 0 16px 45px rgba(0, 0, 0, .24);
+}
+
+body.dark-mode .header {
+  background: rgba(29, 23, 41, .92);
+  border-bottom-color: rgba(205, 183, 246, .16);
+}
+body.dark-mode .nav-menu a,
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3,
+body.dark-mode .logo,
+body.dark-mode .hero-content h2,
+body.dark-mode .contact-item strong,
+body.dark-mode .contact-form label {
+  color: var(--heading-text);
+}
+body.dark-mode .section-tint,
+body.dark-mode .hero {
+  background:
+    radial-gradient(ellipse at 90% 20%, rgba(143, 93, 145, .18) 0%, transparent 34%),
+    radial-gradient(ellipse at 10% 80%, rgba(112, 82, 166, .22) 0%, transparent 38%),
+    var(--page-bg);
+}
+body.dark-mode .about-card,
+body.dark-mode .fact-card,
+body.dark-mode .timeline-card,
+body.dark-mode .timeline-marker,
+body.dark-mode .skill-card,
+body.dark-mode .project-card,
+body.dark-mode .contact-info,
+body.dark-mode .contact-form,
+body.dark-mode .float-card,
+body.dark-mode .project-dialog {
+  background: var(--surface);
+  color: var(--body-text);
+  border-color: var(--line-color);
+}
+body.dark-mode .fact-card,
+body.dark-mode .project-art,
+body.dark-mode .hobby-dance,
+body.dark-mode .hobby-cooking {
+  border-color: var(--line-color);
+}
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background: #1B1527;
+  color: var(--heading-text);
+  border-color: var(--line-color);
+}
+body.dark-mode .footer {
+  background: #21192F;
+  border-top-color: var(--line-color);
+}
+body.dark-mode .nav-menu {
+  background: rgba(29, 23, 41, .98);
+  border-bottom-color: var(--line-color);
+}
+body.dark-mode .btn-outline {
+  background: rgba(48, 37, 65, .8);
+  color: var(--heading-text);
+  border-color: #604A7D;
+}
+body.dark-mode .timeline-label,
+body.dark-mode .skill-tag {
+  background: #352746;
+  color: #DCC5FF;
+}
+body.dark-mode .social-icons a {
+  background: #352746;
+  color: #DCC5FF;
+}
+body.dark-mode .back-to-top { background: #A27BD4; }
+
+.nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 4px;
+}
+.nav-tool-button,
+.language-picker select {
+  min-width: 38px;
+  height: 38px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-color);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--heading-text);
+  cursor: pointer;
+  transition: transform .2s ease, background .25s ease, border-color .25s ease;
+}
+.nav-tool-button:hover,
+.language-picker select:hover { transform: translateY(-2px); }
+.language-picker select { font-weight: 700; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.music-player {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.music-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid rgba(166, 128, 207, .38);
+  border-radius: 14px;
+  background: rgba(255,255,255,.76);
+  color: #76529E;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(91, 63, 130, .08);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.music-toggle:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+/* Tombol lagu sebelumnya / berikutnya: gaya sama dengan tombol musik */
+.music-skip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid rgba(166, 128, 207, .38);
+  border-radius: 14px;
+  background: rgba(255,255,255,.76);
+  color: #76529E;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(91, 63, 130, .08);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.music-skip:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+body.dark-mode .music-skip {
+  background: #302541;
+  color: #E6D4FF;
+  border-color: #604A7D;
+}
+body.dark-mode .music-toggle {
+  background: #302541;
+  color: #E6D4FF;
+  border-color: #604A7D;
+}
+.music-meta {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--muted);
+  font-size: .8rem;
+}
+.music-equalizer {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  opacity: .38;
+}
+.music-equalizer span {
+  display: block;
+  width: 3px;
+  height: 6px;
+  border-radius: 3px;
+  background: #9C78CA;
+}
+.music-equalizer span:nth-child(2) { height: 12px; }
+.music-equalizer span:nth-child(3) { height: 8px; }
+.music-equalizer span:nth-child(4) { height: 15px; }
+.music-player.is-playing .music-equalizer { opacity: 1; }
+.music-player.is-playing .music-equalizer span {
+  animation: equalize .65s ease-in-out infinite alternate;
+}
+.music-player.is-playing .music-equalizer span:nth-child(2) { animation-delay: .15s; }
+.music-player.is-playing .music-equalizer span:nth-child(3) { animation-delay: .3s; }
+.music-player.is-playing .music-equalizer span:nth-child(4) { animation-delay: .1s; }
+@keyframes equalize {
+  from { transform: scaleY(.45); }
+  to { transform: scaleY(1.3); }
+}
+
+/* Pembuka Home lebih sinematik, tetapi tetap lembut dan ringan. */
+.hero .hero-content.reveal.show > * {
+  animation: homeRise .7s both;
+}
+.hero .hero-content.reveal.show > *:nth-child(1) { animation-delay: .08s; }
+.hero .hero-content.reveal.show > *:nth-child(2) { animation-delay: .18s; }
+.hero .hero-content.reveal.show > *:nth-child(3) { animation-delay: .28s; }
+.hero .hero-content.reveal.show > *:nth-child(4) { animation-delay: .38s; }
+.hero .hero-content.reveal.show > *:nth-child(5) { animation-delay: .48s; }
+.hero .hero-content.reveal.show > *:nth-child(6) { animation-delay: .58s; }
+.hero .hero-visual.reveal.show .profile-frame {
+  animation: profileEntrance .95s cubic-bezier(.2,.8,.2,1) both, profileFloat 6s ease-in-out 1s infinite;
+}
+.hero .hero-visual.reveal.show .sparkle { animation: sparklePulse 2.8s ease-in-out infinite; }
+.hero .hero-visual.reveal.show .sparkle-two { animation-delay: .8s; }
+@keyframes homeRise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes profileEntrance {
+  from { opacity: 0; transform: translateY(24px) scale(.94) rotate(-2deg); }
+  to { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+}
+@keyframes profileFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -7px; }
+}
+@keyframes sparklePulse {
+  0%, 100% { opacity: .55; scale: .9; }
+  50% { opacity: 1; scale: 1.12; }
+}
+
+/* Foto pribadi pada kartu hobi menari. */
+.hobby-dance,
+.hobby-cooking {
+  grid-template-columns: minmax(130px, .8fr) 1.2fr;
+  align-items: center;
+}
+.dance-photo-wrap {
+  position: relative;
+  min-width: 0;
+  height: 205px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #DCCCF9, #F8DDEB);
+  box-shadow: 0 12px 28px rgba(73, 53, 104, .16);
+}
+.dance-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transition: transform .6s cubic-bezier(.2,.8,.2,1), filter .4s ease;
+}
+.hobby-dance:hover .dance-photo,
+.hobby-cooking:hover .dance-photo { transform: scale(1.055); filter: saturate(1.05); }
+.dance-photo-caption {
+  position: absolute;
+  left: 9px;
+  right: 9px;
+  bottom: 9px;
+  padding: 6px 9px;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 10px;
+  background: rgba(44, 30, 62, .58);
+  color: white;
+  text-align: center;
+  font-size: .72rem;
+  backdrop-filter: blur(8px);
+}
+.hobby-copy { min-width: 0; }
+.hobby-copy .hobby-emoji { text-align: left; font-size: 2.4rem; }
+body.dark-mode .dance-photo-wrap { box-shadow: 0 12px 28px rgba(0,0,0,.25); }
+
+@media (max-width: 1000px) {
+  .nav-tools { margin: 10px 0 0; padding-top: 10px; border-top: 1px solid var(--line-color); }
+}
+@media (max-width: 760px) {
+  .nav-tools { justify-content: flex-start; }
+  .music-player { justify-content: center; }
+  .hobby-dance,
+  .hobby-cooking { grid-template-columns: 1fr; }
+  .dance-photo-wrap { height: clamp(220px, 62vw, 330px); }
+  .hobby-copy .hobby-emoji { text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-content.reveal.show > *,
+  .hero .hero-visual.reveal.show .profile-frame,
+  .hero .hero-visual.reveal.show .sparkle,
+  .music-player.is-playing .music-equalizer span {
+    animation: none !important;
+  }
+}
+/* ==========================================================================
+   TAMBAHAN ANIMASI GERAK INTERAKTIF & DINAMIS (FILOMENA PORTFOLIO)
+   ========================================================================== */
+
+/* 1. Animasi Kartu Mengambang (Floating Cards) di Hero Section agar lebih smooth */
+.card-code {
+  animation: floatEffect 4s ease-in-out infinite;
+}
+.card-heart {
+  animation: floatEffect 4.5s ease-in-out infinite;
+  animation-delay: -1.5s; /* Membuat ritme gerak berbeda agar organik */
+}
+
+@keyframes floatEffect {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(2deg); /* Bergerak ke atas sedikit berputar */
+  }
+}
+
+/* 2. Efek Denyut Halus pada Dot Status "Sedang Belajar" */
+.status-dot {
+  position: relative;
+}
+.status-dot::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  border-radius: 50%;
+  background: inherit;
+  animation: pulseDot 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  z-index: -1;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* 3. Efek Animasi Hover Menarik pada Tombol (Buttons) */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+.btn-primary:hover::before {
+  left: 100%; /* Efek kilauan cahaya saat tombol didekati mouse */
+}
+
+/* 4. Efek Gerakan Interaktif pada Kartu (Skills, Projects, & Facts) saat Disentuh/Hover */
+.skill-card:hover, .fact-card:hover, .project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #B18AE8;
+  box-shadow: 0 20px 38px rgba(137, 104, 183, 0.15);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Menggerakkan Icon di dalam Skill Card saat di-hover */
+.skill-card:hover .skill-icon {
+  transform: rotate(15deg) scale(1.1);
+  background: #E6D9FF;
+  transition: transform 0.3s ease;
+}
+
+/* 5. Animasi Garis Bawah Navigasi yang Mengikuti dengan Cantik */
+.nav-menu a::after {
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #8A65B7, #C27EB0);
+}
+
+/* 6. Animasi Progress pada Timeline Pendidikan */
+.timeline-marker {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.timeline-item:hover .timeline-marker {
+  transform: scale(1.15);
+  background-color: #F3EDFF;
+  border-color: #8A65B7;
+}

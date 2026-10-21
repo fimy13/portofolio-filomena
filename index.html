@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio pribadi Filomena, mahasiswa Teknik Informatika UNINDRA.">
+  <title>Filomena | Creative Portfolio</title>
+
+  <!-- Font dari Google Fonts; fallback tersedia jika offline -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Navigasi -->
+  <header class="header" id="top">
+    <nav class="navbar container" aria-label="Navigasi utama">
+      <a class="logo" href="#home">Filomena<span>.</span></a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" data-i18n="navHome">Home</a></li>
+        <li><a href="#about" data-i18n="navAbout">About Me</a></li>
+        <li><a href="#education" data-i18n="navEducation">Education</a></li>
+        <li><a href="#skills" data-i18n="navSkills">Skills</a></li>
+        <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
+        <li><a href="#hobbies" data-i18n="navHobbies">Hobbies</a></li>
+        <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+        <li class="nav-tools">
+          <button class="nav-tool-button" id="themeToggle" type="button" aria-label="Aktifkan mode gelap" title="Ganti tema">
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+          </button>
+          <label class="language-picker">
+            <span class="sr-only">Pilih bahasa</span>
+            <select id="languageSelect" aria-label="Pilih bahasa">
+              <option value="id">ID</option>
+              <option value="en">EN</option>
+            </select>
+          </label>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow" data-i18n="heroEyebrow">WELCOME TO MY LITTLE SPACE ✨</span>
+          <h1><span data-i18n="heroGreeting">Halo, saya</span> <span class="gradient-text">Filomena!</span></h1>
+          <h2 data-i18n="heroSubtitle">Informatics Student &amp; Creative Learner</h2>
+          <p>
+            <span data-i18n="heroDescription">Mahasiswa Teknik Informatika yang senang belajar, berkreasi, dan mengembangkan ide menjadi karya digital. Saya terus mengeksplorasi dunia pemrograman dan teknologi.</span>
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#projects" data-i18n="exploreProjects">Jelajahi Proyek ↗</a>
+            <a class="btn btn-outline" href="#about" data-i18n="meetMe">Kenali Saya</a>
+          </div>
+
+          <div class="hero-note">
+            <span class="status-dot"></span>
+            <span data-i18n="learningStatus">Sedang belajar dan terus berkembang</span>
+          </div>
+
+          <!-- Kontrol musik: musik hanya diputar setelah pengunjung menekan tombol -->
+          <div class="music-player" id="musicPlayer">
+            <button class="music-skip" id="musicPrev" type="button" aria-label="Lagu sebelumnya" title="Lagu sebelumnya">
+              <i class="fa-solid fa-backward-step" aria-hidden="true"></i>
+            </button>
+            <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
+              <i class="fa-solid fa-play" aria-hidden="true"></i>
+              <span data-i18n="playMusic">Putar musik</span>
+            </button>
+            <button class="music-skip" id="musicNext" type="button" aria-label="Lagu berikutnya" title="Lagu berikutnya">
+              <i class="fa-solid fa-forward-step" aria-hidden="true"></i>
+            </button>
+            <div class="music-meta">
+              <div class="music-equalizer" id="musicEqualizer" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <span id="musicStatus" role="status" aria-live="polite" data-i18n="musicPaused">Musik dijeda</span>
+            </div>
+            <!-- Sumber lagu diatur di script.js (MUSIC_TRACKS) -->
+            <audio id="portfolioMusic" preload="none"></audio>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="blob blob-one"></div>
+          <div class="blob blob-two"></div>
+
+          <!-- Ganti dengan foto milikmu: images/filomena.jpg -->
+          <div class="profile-frame">
+            <img src="images/filomena.jpg" alt="Foto Filomena" class="profile-img">
+
+              alt="Foto profil Filomena"
+              class="profile-img"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+            <div class="profile-placeholder" aria-label="Placeholder foto profil">
+              <span>F</span>
+              <p>Foto Filomena</p>
+              <small>Ganti dengan fotomu</small>
+            </div>
+          </div>
+
+          <div class="float-card card-code">
+            <span>💻</span>
+            <div><strong>Creative Learner</strong><small>Learning by doing</small></div>
+          </div>
+          <div class="float-card card-heart">
+            <span>💜</span>
+            <div><strong>Tech &amp; Art</strong><small>My little world</small></div>
+          </div>
+          <span class="sparkle sparkle-one">✦</span>
+          <span class="sparkle sparkle-two">✧</span>
+        </div>
+      </div>
+      <a class="scroll-hint" href="#about" data-i18n="scrollHint">Scroll untuk mengenal saya ↓</a>
+    </section>
+
+    <!-- Tentang saya -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">A LITTLE ABOUT ME</span>
+          <h2><span data-i18n="aboutHeading">Mengenal</span> <span class="gradient-text">Filomena</span></h2>
+          <p data-i18n="aboutIntro">Teknologi, kreativitas, dan perjalanan belajar saya.</p>
+        </div>
+
+        <div class="about-card reveal">
+          <div class="about-icon">🌷</div>
+          <div>
+            <h3>Belajar, mencoba, dan bertumbuh</h3>
+            <p>
+              Perkenalkan, saya Filomena, mahasiswa Program Studi Teknik
+              Informatika di Universitas Indraprasta PGRI (UNINDRA).
+              Saya tertarik pada dunia teknologi, khususnya pemrograman,
+              pengembangan website, database, dan pembuatan aplikasi sederhana.
+              Melalui tugas kuliah dan proyek kelompok, saya terus belajar
+              mengembangkan kemampuan teknis, kreativitas, serta kerja sama tim.
+              Di luar dunia teknologi, saya juga senang menari dan memasak
+              sebagai cara mengekspresikan kreativitas.
+            </p>
+          </div>
+        </div>
+
+        <div class="mini-facts">
+          <article class="fact-card reveal">
+            <span>🎓</span><h3>Mahasiswa</h3><p>Teknik Informatika</p>
+          </article>
+          <article class="fact-card reveal">
+            <span>💡</span><h3>Curious Mind</h3><p>Senang mempelajari hal baru</p>
+          </article>
+          <article class="fact-card reveal">
+            <span>🎨</span><h3>Creative Soul</h3><p>Teknologi dan seni</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pendidikan -->
+    <section class="section section-tint" id="education">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">MY JOURNEY</span>
+          <h2>Riwayat <span class="gradient-text">Pendidikan</span></h2>
+          <p>Perjalanan pendidikan yang membentuk langkah saya.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-marker">🎓</div>
+            <div class="timeline-card">
+              <span class="timeline-label">Pendidikan saat ini</span>
+              <h3>Universitas Indraprasta PGRI (UNINDRA)</h3>
+              <p class="timeline-subtitle">Program Studi Teknik Informatika</p>
+              <p>
+                Mahasiswa semester 5 yang terus belajar mengenai
+                pemrograman, pengembangan aplikasi, database,
+                dan teknologi informasi.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-marker">📚</div>
+            <div class="timeline-card">
+              <span class="timeline-label">Lulus tahun 2024</span>
+              <h3>SMAS Katolik St. Fransiskus Asisi Larantuka</h3>
+              <p class="timeline-subtitle">Larantuka, Flores, Nusa Tenggara Timur</p>
+              <p>Menyelesaikan pendidikan menengah atas pada tahun 2024.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Keterampilan -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">WHAT I'M LEARNING</span>
+          <h2>Skills &amp; <span class="gradient-text">Interests</span></h2>
+          <p>Hal-hal yang sedang saya pelajari dan kembangkan.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-icon">💻</div>
+            <h3>Web Development</h3>
+            <p>HTML, CSS, dan JavaScript dasar.</p>
+            <span class="skill-tag">Sedang dipelajari</span>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-icon">🗄️</div>
+            <h3>Database</h3>
+            <p>Perancangan database dan pemodelan data.</p>
+            <span class="skill-tag">Pengalaman tugas kuliah</span>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-icon">🧩</div>
+            <h3>Simple Applications</h3>
+            <p>Mengenal logika program melalui aplikasi sederhana.</p>
+            <span class="skill-tag">Terus berlatih</span>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-icon">🤝</div>
+            <h3>Collaboration</h3>
+            <p>Berdiskusi dan mengerjakan proyek bersama kelompok.</p>
+            <span class="skill-tag">Proyek kelompok</span>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-icon">💃</div>
+            <h3>Dance</h3>
+            <p>Menari sebagai bentuk ekspresi dan kreativitas.</p>
+            <span class="skill-tag">Hobi</span>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-icon">🍳</div>
+            <h3>Cooking</h3>
+            <p>Menikmati kegiatan memasak dan mengeksplorasi hidangan.</p>
+            <span class="skill-tag">Hobi</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyek -->
+    <section class="section section-tint" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">MY CREATIVE WORKS</span>
+          <h2>Proyek <span class="gradient-text">Pilihan</span></h2>
+          <p>Beberapa contoh proyek untuk tugas kuliah dan latihan.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-art art-calculator">
+              <span class="art-emoji">🧮</span>
+              <span class="art-label">01 / PROGRAMMING</span>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Programming</span>
+              <h3>Program Kalkulator</h3>
+              <p>
+                Program kalkulator sederhana untuk berlatih logika
+                pemrograman dan operasi aritmetika.
+              </p>
+              <p class="project-tech">Teknologi: sesuaikan dengan proyek asli.</p>
+              <button class="text-link project-detail"
+                type="button"
+                data-title="Program Kalkulator"
+                data-description="Program kalkulator sederhana untuk latihan logika pemrograman dan operasi aritmetika. Tambahkan detail fitur dan teknologi yang benar-benar digunakan.">
+                Lihat Detail ↗
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-art art-database">
+              <span class="art-emoji">🗃️</span>
+              <span class="art-label">02 / DATABASE</span>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Database</span>
+              <h3>Desain Database</h3>
+              <p>
+                Proyek perancangan database untuk tugas kuliah,
+                dikerjakan secara individu atau bersama kelompok.
+              </p>
+              <p class="project-tech">Teknologi: sesuaikan dengan proyek asli.</p>
+              <button class="text-link project-detail"
+                type="button"
+                data-title="Desain Database"
+                data-description="Proyek desain database untuk tugas kuliah. Tambahkan nama sistem, diagram, tabel, dan peranmu dalam pengerjaan proyek ini.">
+                Lihat Detail ↗
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-art art-website">
+              <span class="art-emoji">🌐</span>
+              <span class="art-label">03 / WEB DEVELOPMENT</span>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Web Development</span>
+              <h3>Website Portofolio</h3>
+              <p>
+                Website pribadi untuk menampilkan profil, pendidikan,
+                keterampilan, proyek, dan hobi.
+              </p>
+              <p class="project-tech">Teknologi: HTML, CSS, JavaScript.</p>
+              <button class="text-link project-detail"
+                type="button"
+                data-title="Website Portofolio"
+                data-description="Website portofolio pribadi yang sedang dikembangkan dengan HTML, CSS, dan JavaScript. Setelah dipublikasikan, tambahkan tautan website di sini.">
+                Lihat Detail ↗
+              </button>
+            </div>
+          </article>
+        </div>
+        <p class="project-note">
+          Catatan: sesuaikan deskripsi dengan hasil proyek yang benar-benar
+          kamu buat dan tambahkan tautan demo setelah tersedia.
+        </p>
+      </div>
+    </section>
+
+    <!-- Modal detail proyek -->
+    <dialog class="project-dialog" id="projectDialog" aria-labelledby="dialogTitle">
+      <div class="dialog-content">
+        <button class="dialog-close" id="dialogClose"
+          type="button" aria-label="Tutup detail">×</button>
+        <span class="eyebrow">PROJECT DETAILS</span>
+        <h2 id="dialogTitle">Detail Proyek</h2>
+        <p id="dialogDescription"></p>
+        <button class="btn btn-primary" id="dialogOk" type="button">Mengerti</button>
+      </div>
+    </dialog>
+
+    <!-- Hobi -->
+    <section class="section" id="hobbies">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">LIFE BEYOND THE SCREEN</span>
+          <h2>My Little <span class="gradient-text">Joy</span></h2>
+          <p data-i18n="hobbiesIntro">Hal sederhana yang membuat hari-hari saya lebih berwarna.</p>
+        </div>
+
+        <div class="hobbies-grid">
+          <article class="hobby-card hobby-dance reveal">
+            <div class="dance-photo-wrap">
+              <img class="dance-photo" src="images/filomena-dance.jpg" alt="Foto Filomena untuk bagian hobi menari">
+              <div class="dance-photo-caption">My dance moments ✨</div>
+            </div>
+            <div class="hobby-copy">
+              <div class="hobby-emoji">💃</div>
+              <span class="hobby-number">HOBI 01</span>
+              <h3 data-i18n="danceTitle">Menari</h3>
+              <p>
+                Menari menjadi salah satu cara saya menikmati seni,
+                mengekspresikan diri, dan menyalurkan kreativitas.
+              </p>
+            </div>
+          </article>
+          <article class="hobby-card hobby-cooking reveal">
+            <div class="dance-photo-wrap">
+              <img class="dance-photo" src="images/filomena-cook.jpg" alt="Foto Filomena untuk bagian hobi memasak">
+              <div class="dance-photo-caption">My cooking moments ✨</div>
+            </div>
+            <div class="hobby-copy">
+              <div class="hobby-emoji">🍰</div>
+              <span class="hobby-number">HOBI 02</span>
+              <h3 data-i18n="cookingTitle">Memasak</h3>
+              <p>
+                Saya senang memasak dan menikmati proses menyiapkan
+                hidangan dengan kreativitas dan rasa ingin tahu.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontak -->
+    <section class="section section-tint" id="contact">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">LET'S CONNECT</span>
+          <h2>Mari <span class="gradient-text">Terhubung!</span></h2>
+          <p>
+            Punya ide, ingin berdiskusi, atau mau berkolaborasi?
+            Saya senang bertukar ide dan belajar bersama.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <div class="contact-info reveal">
+            <h3>Say hello 💌</h3>
+            <p>
+              Kamu bisa mengganti informasi berikut dengan kontak
+              aktif milikmu.
+            </p>
+           <div class="contact-item">
+  <span>✉️</span>
+  <div>
+    <strong>Email</strong>
+    <p><a href="mailto:fimyweking@gmail.com" style="color: inherit; text-decoration: none;">fimyweking@gmail.com</a></p>
+  </div>
+</div>
+<div class="contact-item">
+  <span>💻</span>
+  <div>
+    <strong>GitHub</strong>
+    <p><a href="https://github.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">fimy13</a></p>
+  </div>
+</div>
+
+ 
+<div class="social-icons">
+  <a href="https://www.instagram.com/filomenawkg/"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="https://www.tiktok.com/@filomenawkg"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="TikTok">
+    <i class="fa-brands fa-tiktok"></i>
+  </a>
+
+  <a href="https://www.facebook.com/fhimy.weking"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Facebook">
+    <i class="fa-brands fa-facebook"></i>
+  </a>
+</div>
+
+          </div>
+
+          <form class="contact-form reveal" id="contactForm">
+            <label for="name">Nama</label>
+            <input type="text" id="name" name="name"
+              placeholder="Nama kamu" required minlength="2">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email"
+              placeholder="nama@email.com" required>
+
+            <label for="message">Pesan</label>
+            <textarea id="message" name="message" rows="5"
+              placeholder="Tulis pesanmu di sini..." required minlength="5"></textarea>
+
+            <button class="btn btn-primary" type="submit">Periksa Pesan ♡</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            <small>Formulir ini belum mengirim pesan ke email. Ini adalah demo validasi di browser.</small>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="logo" href="#top">Filomena<span>.</span></a>
+      <p>Dibuat dengan kreativitas dan semangat belajar 💜</p>
+      <p>© <span id="currentYear"></span> Filomena</p>
+    </div>
+  </footer>
+
+  <a class="back-to-top" id="backToTop" href="#top"
+    aria-label="Kembali ke atas">↑</a>
+</body>
+</html>
